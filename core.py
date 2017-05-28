@@ -1,5 +1,13 @@
-from os import rename, listdir, getcwd
+from codecs import decode
+from os import rename, listdir
 from os.path import isfile, basename, normpath, isdir, join
+from subprocess import Popen, PIPE, STDOUT
+
+
+def _rename(base, path):
+    new = path.replace(base, 'dot-{}'.format(base[1:]))
+    rename(path, new)
+    return new
 
 
 def rename_all(d: str):
@@ -14,11 +22,7 @@ def rename_all(d: str):
             rename_all(join(new_d, sub))
 
 
-def _rename(base, path):
-    new = path.replace(base, 'dot-{}'.format(base[1:]))
-    rename(path, new)
-    return new
-
-
-if __name__ == '__main__':
-    rename_all(getcwd())
+def shell_command(cmd):
+    p = Popen(cmd, stdout=PIPE, stderr=STDOUT, shell=True)
+    for line in p.stdout:
+        print(decode(line))
