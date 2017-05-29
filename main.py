@@ -1,3 +1,4 @@
+from os.path import expanduser
 from pathlib import Path
 from sys import argv
 
@@ -10,4 +11,4 @@ if __name__ == '__main__':
     if argv[1] == 'link':
         environments = argv[2:]
         for e in environments:
-            link_all(Path(f'../@{e}').resolve(), Path('~/').resolve())
+            link_all(Path(f'../@{e}').resolve(), Path(expanduser('~')))
