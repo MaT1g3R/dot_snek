@@ -137,6 +137,7 @@ def link_all(src: Path, dest: Path):
     :param src: the source path
     :param dest: the dest path
     """
+    call('clear', shell=True)
     print('Renaming...')
     rename_to_hidden(src)
     __link_all(src, dest)

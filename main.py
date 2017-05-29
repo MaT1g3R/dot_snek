@@ -10,4 +10,4 @@ if __name__ == '__main__':
     if argv[1] == 'link':
         environments = argv[2:]
         for e in environments:
-            link_all(Path(f'../@{e}'), Path('~/'))
+            link_all(Path(f'../@{e}').resolve(), Path('~/').resolve())
