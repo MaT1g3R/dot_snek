@@ -13,6 +13,6 @@ def update():
     shell_command('git submodule update --recursive --remote')
     shell_command('git add dot_snek')
     shell_command('git commit -m "snek"')
-    shell_command('git push')
     shell_command('git pull')
+    shell_command('git push')
     chdir(old_dir)
