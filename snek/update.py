@@ -10,9 +10,9 @@ def update():
     """
     old_dir = getcwd()
     chdir(Path('..').absolute())
-    shell_command('git submodule update --init --recursive')
+    shell_command('git submodule update --recursive --remote')
+    shell_command('git add dot_snek')
+    shell_command('git commit -m "snek"')
+    shell_command('git push')
     shell_command('git pull')
     chdir(old_dir)
-
-
-
