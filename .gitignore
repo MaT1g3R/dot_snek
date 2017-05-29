@@ -1,3 +1,7 @@
 .idea/
 
 snek/__pycache__/
+
+dot_snek\.egg-info/
+
+dist/
