@@ -16,14 +16,20 @@ def __base_cond(path: Path):
     )
 
 
-def shell_command(cmd: str):
+def shell_command(cmd: str, print_output=True):
     """
     Run a shell command and prints its output to stdout
     :param cmd: the shell command
+    :param print_output: if True this will print the output, if false this will
+    yield the output
     """
     process = Popen(cmd, stdout=PIPE, stderr=STDOUT, shell=True)
     for line in process.stdout:
-        print(decode(line))
+        res = decode(line)
+        if print_output:
+            print(res)
+        else:
+            yield res
 
 
 def create_link(src: Path, dest: Path):
