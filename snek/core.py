@@ -74,7 +74,5 @@ def link_all(src: Path, dest: Path):
     :param src: the source path
     :param dest: the dest path
     """
-    call('clear', shell=True)
     __link_all(src, dest)
-    call('clear', shell=True)
     print('Done!')
