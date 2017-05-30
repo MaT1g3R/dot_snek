@@ -17,3 +17,8 @@ def main():
         environments = argv[2:]
         for e in environments:
             link_all(Path(f'./{e}').resolve(), Path(expanduser('~')))
+
+
+if __name__ == '__main__':
+    chdir('..')
+    update()

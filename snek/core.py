@@ -24,12 +24,14 @@ def shell_command(cmd: str, print_output=True):
     yield the output
     """
     process = Popen(cmd, stdout=PIPE, stderr=STDOUT, shell=True)
+    lines = []
     for line in process.stdout:
         res = decode(line)
         if print_output:
             print(res)
         else:
-            yield res
+            lines.append(res)
+    return lines
 
 
 def create_link(src: Path, dest: Path):
